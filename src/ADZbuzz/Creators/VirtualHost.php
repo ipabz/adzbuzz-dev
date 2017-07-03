@@ -21,7 +21,7 @@ class VirtualHost extends FileManager
     {
         $contents = $this->read('stubs/virtualhost.stub');
         
-        $this->sites->each(function($site) use ($contents) {
+        $this->sites->each(function ($site) use ($contents) {
             $map = $site['map'];
             $to = $site['to'];
 
