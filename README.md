@@ -4,15 +4,17 @@ You must have <a target="_blank" href="https://www.virtualbox.org">virtualbox</a
 
 # Installation
 
-1) git clone https://github.com/ipabz/adzbuzz-dev.git AdzbuzzDevEnv
+1) cd ~
 
-2) cd ~/AdzbuzzDevEnv
+2) git clone https://github.com/ipabz/adzbuzz-dev.git AdzbuzzDevEnv
 
-3) composer install
+3) cd ~/AdzbuzzDevEnv
 
-4) bash scripts/init.sh
+4) composer install
 
-5) Modify ~/AdzbuzzDevEnv/Adzbuzz.yaml file based on your needs
+5) bash scripts/init.sh
 
-6) vagrant up
+6) Modify ~/AdzbuzzDevEnv/Adzbuzz.yaml file based on your needs
+
+7) vagrant up
 
