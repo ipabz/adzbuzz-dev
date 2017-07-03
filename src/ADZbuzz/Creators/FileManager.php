@@ -24,10 +24,6 @@ abstract class FileManager
 
     public function read($file)
     {
-        if (! file_exists($file)) {
-            throw new FileNotFoundException('Unable to read file: ' . $file);
-        }
-
-        return $filesystem->read($file);
+        return $this->manager->read('local://' . $file);
     }
 }

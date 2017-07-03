@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo "export LANG=en_PH" >> ~/.bashrc
+echo "export LANG=en_PH" >> /home/vagrant/.bashrc
+
 # Use our own httpd.conf setup
 sudo rm -f /etc/httpd/conf/httpd.conf
 sudo cat /vagrant/stubs/httpd.conf.stub > /etc/httpd/conf/httpd.conf

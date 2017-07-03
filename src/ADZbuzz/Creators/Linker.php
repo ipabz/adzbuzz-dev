@@ -24,6 +24,7 @@ class Linker extends FileManager
             $fromLocation = str_replace('~', '/vagrant_data', $folder['map']);
             $toLocation = $folder['to'];
 
+            $this->command->run("sudo rm -rf $toLocation");
             $this->command->run("sudo ln -s $fromLocation $toLocation");
         });
     }
