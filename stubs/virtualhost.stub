@@ -1,0 +1,8 @@
+<VirtualHost *:80>
+    ServerAdmin ipabelona@gmail.com
+    ServerName coolexample.com
+    ServerAlias www.coolexample.com 
+    DocumentRoot /var/www/coolexample.com/public_html 
+    ErrorLog /var/www/coolexample.com/error.log 
+    CustomLog /var/www/coolexample.com/requests.log combined 
+</VirtualHost>

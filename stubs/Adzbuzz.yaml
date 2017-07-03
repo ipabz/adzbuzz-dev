@@ -1,0 +1,10 @@
+folders:
+    - map: ~/Desktop/Projects
+      to: /home/vagrant/Code
+
+sites:
+    - map: adzbuzz.local
+      to: /home/vagrant/Code/adzbuzz
+
+databases:
+    - adzbuzz

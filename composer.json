@@ -1,0 +1,22 @@
+{
+    "name": "icpabelona/adzbuzz-dev",
+    "require": {
+        "league/flysystem": "^1.0",
+        "symfony/yaml": "^3.3",
+        "tightenco/collect": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "ADZbuzzDevEnv\\": "src/ADZbuzz/"
+        },
+        "files": [
+            "src/ADZbuzz/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Ivan Clint A. Pabelona",
+            "email": "ipabelona@gmail.com"
+        }
+    ]
+}
