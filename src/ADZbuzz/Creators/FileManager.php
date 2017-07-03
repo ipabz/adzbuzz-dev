@@ -10,9 +10,19 @@ use ADZbuzzDevEnv\Exceptions\FileNotFoundException;
 
 abstract class FileManager
 {
+    /**
+     * @var string
+     */
     protected $basePath;
+
+    /**
+     * @var League\Flysystem\MountManager
+     */
     protected $manager;
 
+    /**
+     * @param string $basePath
+     */
     public function __construct($basePath)
     {
         $this->basePath = $basePath;
@@ -22,6 +32,12 @@ abstract class FileManager
         ]);
     }
 
+    /**
+     * Read file
+     * 
+     * @param  string $file 
+     * @return string
+     */
     public function read($file)
     {
         return $this->manager->read('local://' . $file);
