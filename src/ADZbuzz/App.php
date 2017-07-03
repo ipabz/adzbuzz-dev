@@ -3,6 +3,7 @@
 namespace ADZbuzzDevEnv;
 
 use Symfony\Component\Yaml\Yaml;
+use ADZbuzzDevEnv\Creators\Mysql;
 use ADZbuzzDevEnv\Creators\Linker;
 use ADZbuzzDevEnv\Creators\VirtualHost;
 use Symfony\Component\Yaml\Exception\ParseException;
@@ -35,6 +36,11 @@ class App
     protected $virtualHost;
 
     /**
+     * @var ADZbuzzDevEnv\Creators\Mysql
+     */
+    protected $mysql;
+
+    /**
      * @param string $basePath
      */
     public function __construct($basePath)
@@ -47,6 +53,8 @@ class App
         $this->linker = new Linker($this->basePath, $this->config['folders']);
 
         $this->virtualHost = new VirtualHost($this->basePath, $this->config['sites']);
+
+        $this->mysql = new Mysql($this->basePath, $this->config['databases']);
     }
 
     /**
@@ -60,8 +68,7 @@ class App
 
         $this->virtualHost->generateVirtualHosts();
 
-        // print "\n\n";
-        // print_r($this->config);
+        $this->mysql->createDatabase();
     }
 
     /**
