@@ -6,8 +6,15 @@ use ADZbuzzDevEnv\Console\Command;
 
 class VirtualHost extends FileManager
 {
+    /**
+     * @var array
+     */
     protected $sites;
 
+    /**
+     * @param string $basePath 
+     * @param array $sites
+     */
     public function __construct($basePath, $sites)
     {
         parent::__construct($basePath);
@@ -17,6 +24,11 @@ class VirtualHost extends FileManager
         $this->command = new Command($basePath);
     }
 
+    /**
+     * Generate VirtualHosts
+     * 
+     * @return void
+     */
     public function generateVirtualHosts()
     {
         $contents = $this->read('stubs/virtualhost.stub');
@@ -30,6 +42,14 @@ class VirtualHost extends FileManager
         });
     }
 
+    /**
+     * Prepare Content
+     * 
+     * @param  string $contents
+     * @param  string $map
+     * @param  string $to   
+     * @return string
+     */
     protected function prepareContent($contents, $map, $to)
     {
         $temp = explode('/', $to);
@@ -50,6 +70,13 @@ class VirtualHost extends FileManager
         return $contents;
     }
 
+    /**
+     * Create a VirtualHost
+     * 
+     * @param  string $contents 
+     * @param  string $map
+     * @return void
+     */
     protected function createVirtualHost($contents, $map)
     {
         $siteAvailable = '/etc/httpd/sites-available/' . $map . '.conf';
