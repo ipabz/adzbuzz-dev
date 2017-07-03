@@ -6,9 +6,20 @@ use ADZbuzzDevEnv\Console\Command;
 
 class Linker extends FileManager
 {
+    /**
+     * @var array
+     */
     protected $folders;
+
+    /**
+     * @var ADZbuzzDevEnv\Console\Command
+     */
     protected $command;
 
+    /**
+     * @param string $basePath 
+     * @param array $folders
+     */
     public function __construct($basePath, $folders)
     {
         parent::__construct($basePath);
@@ -18,6 +29,11 @@ class Linker extends FileManager
         $this->command = new Command($basePath);
     }
 
+    /**
+     * Link directories
+     * 
+     * @return void
+     */
     public function linkDirectories()
     {
         $this->folders->each(function($folder) {
