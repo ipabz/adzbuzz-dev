@@ -32,12 +32,15 @@ class VirtualHost extends FileManager
 
     protected function prepareContent($contents, $map, $to)
     {
+        $temp = explode('/', $to);
+        $publicHmtl = '/var/www/html/' . $temp[count($temp)-2] . '/' . $temp[count($temp)-1];
+
         $data = [
             'ServerName coolexample.com'                               => 'ServerName ' . $map,
             'ServerAlias www.coolexample.com'                          => 'ServerAlias www.' . $map,
-            'DocumentRoot /var/www/coolexample.com/public_html'        => 'DocumentRoot ' . $to,
-            'ErrorLog /var/www/coolexample.com/error.log'              => 'ErrorLog ' . $to . '/error.log',
-            'CustomLog /var/www/coolexample.com/requests.log combined' => 'CustomLog ' . $to . '/requests.log combined'
+            'DocumentRoot /var/www/coolexample.com/public_html'        => 'DocumentRoot ' . $publicHmtl,
+            'ErrorLog /var/www/coolexample.com/error.log'              => 'ErrorLog ' . $publicHmtl . '/error.log',
+            'CustomLog /var/www/coolexample.com/requests.log combined' => 'CustomLog ' . $publicHmtl . '/requests.log combined'
         ];
 
         foreach ($data as $replaceThis => $replaceWith) {
