@@ -6,14 +6,30 @@ use ADZbuzzDevEnv\Exceptions\CommandException;
 
 class Command
 {
+    /**
+     * @var string
+     */
     protected $repository;
+
+    /**
+     * @var string
+     */
     protected $cwd;
 
+    /**
+     * @param string $path
+     */
     public function __construct($path)
     {
         $this->repository = $path;
     }
 
+    /**
+     * Run a command
+     * 
+     * @param  string $cmd 
+     * @return ADZbuzzDevEnv\Console\Command
+     */
     public function run($cmd)
     {
         $cmd = $this->prepareCommand(func_get_args());
@@ -27,11 +43,25 @@ class Command
         return $this;
     }
 
+    /**
+     * Run cli command and return the output as array
+     * 
+     * @param  string $cmd    
+     * @param  mixed $filter 
+     * @return array
+     */
     public function extract($cmd, $filter=null)
     {
         return $this->extractFromCommand($cmd, $filter);
     }
 
+    /**
+     * Extract cli command out to array
+     * 
+     * @param  string $cmd    
+     * @param  mixed $filter 
+     * @return array
+     */
     protected function extractFromCommand($cmd, $filter = null)
     {
         $output = array();
@@ -68,6 +98,9 @@ class Command
         return $output;
     }
 
+    /**
+     * @return ADZbuzzDevEnv\Console\Command
+     */
     protected function begin()
     {
         if ($this->cwd === null) {
@@ -77,7 +110,10 @@ class Command
 
         return $this;
     }
-        
+    
+    /**
+     * @return ADZbuzzDevEnv\Console\Command
+     */
     protected function end()
     {
         if (is_string($this->cwd)) {
@@ -89,6 +125,12 @@ class Command
         return $this;
     }
     
+    /**
+     * Prepare command
+     * 
+     * @param  array  $args 
+     * @return string
+     */
     protected static function prepareCommand(array $args)
     {
         $cmd = [];
@@ -102,6 +144,12 @@ class Command
         return "$programName " . implode(' ', $cmd);
     }
 
+    /**
+     * Prepager command
+     * 
+     * @param  mixed $arg 
+     * @return array
+     */
     protected function prepare($arg)
     {
         if (is_array($arg)) {
@@ -115,6 +163,12 @@ class Command
         return [];
     }
 
+    /**
+     * Extract command from array
+     * 
+     * @param  array  $args 
+     * @return array
+     */
     protected function extractCommandFromArray(array $args)
     {
         $cmd = [];
