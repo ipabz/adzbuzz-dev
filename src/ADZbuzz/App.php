@@ -39,7 +39,7 @@ class App
      */
     public function __construct($basePath)
     {
-        $this->configYamlPath = $basePath . 'stubs/Adzbuzz.yaml';
+        $this->configYamlPath = $basePath . 'Adzbuzz.yaml';
         $this->basePath = $basePath;
 
         $this->config = $this->parseConfig();
@@ -59,7 +59,7 @@ class App
         $this->linker->linkDirectories();
 
         $this->virtualHost->generateVirtualHosts();
-        
+
         // print "\n\n";
         // print_r($this->config);
     }
