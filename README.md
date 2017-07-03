@@ -10,7 +10,9 @@ You must have <a target="_blank" href="https://www.virtualbox.org">virtualbox</a
 
 3) composer install
 
-4) Modify ~/AdzbuzzDevEnv/Adzbuzz.yaml file based on your needs
+4) bash scripts/init.sh
 
-5) vagrant up
+5) Modify ~/AdzbuzzDevEnv/Adzbuzz.yaml file based on your needs
+
+6) vagrant up
 
