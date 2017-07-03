@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "~", "/vagrant_data"
 
   config.vm.provider "virtualbox" do |vb|
-    vb.memory = "1024"
+    vb.memory = "512"
   end
 
   config.vm.provision :shell, :path => "scripts/bootstrap.sh"
