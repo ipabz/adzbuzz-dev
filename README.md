@@ -26,7 +26,7 @@ function adzbuzz() {
 
 8) Then run this from anywhere
 
-This starts the virtual machine. At first, this will download the vagrant box will take a much time depending on your internet connection. Take note that this will only download the box once and then the next time you run the command, it will just start the box you downloaded.
+This starts the virtual machine. At first, this will download the vagrant box which will take as much time depending on your internet connection. Take note that this will only download the box once and then the next time you run the command, it will just start the box you downloaded.
 
 ```
 adzbuzz up
